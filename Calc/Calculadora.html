@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <style>
+
+p {
+  margin: 0;
+  text-align: center;
+  font-size: 20px; 
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  position: relative;
+}
+
+.calculator {
+  position: relative;
+  margin: 1em auto;
+  padding: 1em 0;
+  display: block-inline;
+  width: 300px;
+  background-color: #555;
+  border-radius: 25px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.row {
+  text-align: center;
+}
+
+.row div.tela {
+  font-family: monospace;
+  display: flexbox;
+  flex-direction: row;
+  width: 78%;
+  background-color: #aaa;
+  text-align: right;
+  font-size: 1.6em;
+  min-height: 1.2em;
+  margin-left: 0.5em;
+  padding-right: 0.5em;
+  border: 1px solid #555;
+  color: #333;
+}
+
+.row div {
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  border: 1.6px solid #666;
+  background-color: #eee;
+  padding: 10px 0;
+  margin: 6px 5px;
+  border-radius: 15px;
+  width: 50px;
+}
+
+.button:active {
+  background-color: #eee;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <p>Calculadora</p>
+        <div class="row">
+            <div class="tela">0123456789</div>
+        </div>
+        
+        <div class="row">
+            <div class="button">+/-</div><div class="button">1/x</div><div class="button">C</div><div class="button">%</div>
+        </div>
+        
+        <div class="row">
+            <div class="button">7</div><div class="button">8</div><div class="button">9</div><div class="button">/</div>
+        </div>
+        
+        <div class="row">
+            <div class="button">4</div><div class="button">5</div><div class="button">6</div><div class="button">*</div>
+        </div>
+        
+        <div class="row">
+            <div class="button">1</div><div class="button">2</div><div class="button">3</div><div class="button">-</div>
+        </div>
+        
+        <div class="row">
+            <div class="button">.</div><div class="button">0</div><div class="button">=</div><div class="button">+</div>
+        </div>
+    </div>
+</body>
+</html>
