@@ -10,14 +10,14 @@ $(document).ready(function() {
       
       if (buttonPressed === "C") {
         resultado = 0;
-        num1 = '0';
-        tela(num1);
+        tela(resultado);
       } else if (buttonPressed === "+/-") {
         num1 *= -1;
-        tela(num1);
+        resultado = num1
+        tela(resultado);
       } else if (buttonPressed === '.') {
         num1 += '.';
-        tela(num1);
+        tela(resultado);
       } else if (isNumber(buttonPressed)) {
         if (num1 === '0') num1 = buttonPressed;
         else num1 = num1 + buttonPressed;
@@ -38,6 +38,7 @@ $(document).ready(function() {
         operador = null;
         tela(num1);
       }
+      mudarVar;
     });
   });
   
