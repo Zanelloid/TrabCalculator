@@ -4,61 +4,81 @@ var operador = '';
 var resultado = '';
     
 $(document).ready(function() {
-    $('.button').on('click', function(e) {
-        let btn = e.target.innerHTML;
+    $('.button').on('click', function(){
+        var btn = $(this).html();
+
+        calcular(btn)
+        console.log(btn)
+
         if (btn >= '0' && btn <= '9') {
-            handleNumber(btn);
+            Numeros(btn);
         } else {
-            handleOperator(btn);
+            TipoOperador(btn);
         }
     });
 });
+function calcular(aux){
+    switch(aux){
+        case '+' || '-':
 
-function numeros(num) {
+            break;
+        default:
+
+            break;
+    }
+}
+function Numeros(num) {
     if (num1 === '') {
         num1 = num;
     } else {
         num2 = num;
     }
-    displayButton(num);
+    Tela(num);
 }
 
-function handleOperator(oper) {
-    if (operator === '') {
-        operator = oper;
+function TipoOperador(oper) {
+    if (operador === '') {
+        operador = oper;
     } else {
-        handleTotal();
-        operator = oper;
+        calculos();
+        operador = oper;
     }
 }
 
-function handleTotal() {
-    switch (operator) {
+function calculos() {
+    switch (operador) {
         case '+':
-            total = +num1 + +num2;
-            displayButton(total);
+            resultado = +num1 + +num2;
+            Tela(resultado);
             break;
         case '-':
-            total = +num1 - +num2;
-            displayButton(total);
+            resultado = +num1 - +num2;
+            Tela(resultado);
             break;
         case '/':
-            total = +num1 / +num2;
-            displayButton(total);
+            resultado = +num1 / +num2;
+            Tela(resultado);
             break;
-        case 'X':
-            total = +num1 * +num2;
-            displayButton(total);
+        case '*':
+            resultado = +num1 * +num2;
+            Tela(resultado);
+            break;
+        case 'C':
+            resultado = 0;
+            Tela(resultado)
+            break;
+        default:
+
             break;
     }
-    updateVariables();
+    ArrumaVar();
 }
 
-function displayButton(btn) {
-    $('.calc-result-input').text(btn);
+function Tela(btn) { 
+    $('.row div.tela').html(btn);
 }
 
-function updateVariables() {
-    num1 = total;
+function ArrumaVar() {
+    num1 = resultado;
     num2 = '';
 }
