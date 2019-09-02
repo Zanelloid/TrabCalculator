@@ -18,12 +18,13 @@ $(document).ready(function() {
       } else if (buttonPressed === '.') {
         num1 += '.';
         tela(resultado);
-      } else if (isNumber(buttonPressed)) {
+      } else if (buttonPressed >= 0 && buttonPressed <=9) {
         if (num1 === '0') num1 = buttonPressed;
         else num1 = num1 + buttonPressed;
         tela(num1);
       } else if (buttonPressed === '+') {
-        num2 = parseFloat(num1);
+        //num2 = parseFloat(num1);
+        tela("");
         operador = buttonPressed;
         resultado = operate(num2, num1, operador);
         tela(resultado);
@@ -38,13 +39,31 @@ $(document).ready(function() {
         operador = null;
         tela(num1);
       }
-      mudarVar;
+      //mudarVar;
     });
   });
   
-  function tela(displayValue) {
-    var displayValue = displayValue.toString();
-    $('.tela').html(displayValue.substring(0, 10));
+  if (buttonPressed >= 0 && buttonPressed <=9){
+    if (num1 != '0')
+    if (num1 === '0') 
+      num1 = buttonPressed;
+    else 
+      num1 = num1 + buttonPressed;
+    tela(num1);
+  }else{
+    switch(buttonPressed){
+      case '+':
+        operador = buttonPressed;
+        break;
+    }
+  }
+  operate()
+
+
+
+
+  function tela(btnaux) {
+    $('.tela').html(btnaux);
   };
   
   function isNumber(value) {
