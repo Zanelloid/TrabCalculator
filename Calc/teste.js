@@ -7,58 +7,34 @@ $(document).ready(function() {
     $('.button').on('click', function() {
       var buttonPressed = $(this).html();
       console.log(buttonPressed);
-      
-      if (buttonPressed === "C") {
-        resultado = 0;
-        tela(resultado);
-      } else if (buttonPressed === "+/-") {
-        num1 *= -1;
-        resultado = num1
-        tela(resultado);
-      } else if (buttonPressed === '.') {
-        num1 += '.';
-        tela(resultado);
-      } else if (buttonPressed >= 0 && buttonPressed <=9) {
-        if (num1 === '0') num1 = buttonPressed;
-        else num1 = num1 + buttonPressed;
+
+      if (buttonPressed >= 0 && buttonPressed <=9){
+        if (num1 === '0'){
+          num1 = buttonPressed;
+        } 
+        else{
+          num1 = num1 + buttonPressed;
+        } 
         tela(num1);
-      } else if (buttonPressed === '+') {
-        //num2 = parseFloat(num1);
-        tela("");
-        operador = buttonPressed;
+      }else{
+        switch(buttonPressed){
+          case '+':
+            mudarVar();
+            break;
+          case "-":
+            mudarVar();
+            break;
+          default:
+            mudarVar();
+            break;
+        }
         resultado = operate(num2, num1, operador);
+        tela('');
         tela(resultado);
-      } else if(buttonPressed === '%') {
-        num1 = num1 / 100;
-        tela(num1);
-      } else if (buttonPressed === '1/x') {
-        num1 = 1 / num1;
-        tela(num1);
-      } else if (buttonPressed === '=') {
-        num1 = operate(num2, num1, operador);
-        operador = null;
-        tela(num1);
       }
-      //mudarVar;
     });
   });
   
-  if (buttonPressed >= 0 && buttonPressed <=9){
-    if (num1 != '0')
-    if (num1 === '0') 
-      num1 = buttonPressed;
-    else 
-      num1 = num1 + buttonPressed;
-    tela(num1);
-  }else{
-    switch(buttonPressed){
-      case '+':
-        operador = buttonPressed;
-        break;
-    }
-  }
-  operate()
-
 
 
 
@@ -84,6 +60,7 @@ $(document).ready(function() {
     if (operador === '/') return a / b;
   }
   function mudarVar(){
-      num1 = resultado;
-      num2 = '';
+    operador = buttonPressed;
+    num2 = num1;
+    num1 = '0';
   }
